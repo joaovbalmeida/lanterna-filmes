@@ -1,0 +1,9 @@
+{
+  "extends": ["prettier", "next", "next/core-web-vitals"],
+  "rules": {
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "@next/next/no-img-element": "off",
+  }
+}
