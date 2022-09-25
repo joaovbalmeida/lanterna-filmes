@@ -1,0 +1,19 @@
+.about-span {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #828282;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 72px;
+}
+
+.people-span {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #828282;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+}

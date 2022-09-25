@@ -21,14 +21,16 @@ const Layout = ({ children }) => {
           content={`A statically generated blog example using Next.js and`}
         />
         <meta property="og:image" content={'HOME_OG_IMAGE_URL'} key="ogImage" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </Head>
       <Header />
-      <div className="min-h-screen bg-orange font-montserrat">
+      <div className="min-h-screen bg-black font-montserrat">
         <main>{children}</main>
       </div>
       <Footer />

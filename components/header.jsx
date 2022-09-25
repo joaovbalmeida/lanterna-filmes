@@ -26,7 +26,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
-    <nav className="fixed top-0 flex h-20 w-screen px-8 md:px-0 bg-gradient-transparent z-10 font-montserrat">
+    <nav className="fixed top-0 flex h-20 w-screen px-8 md:px-0 bg-gradient-transparent z-50 font-montserrat">
       <div className="flex items-center h-full w-1/2 md:w-1/3 md:pl-16">
         <div
           className="group w-8 h-fit cursor-pointer p-2"

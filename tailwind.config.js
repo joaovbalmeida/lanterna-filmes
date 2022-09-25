@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ['Montserrat'],
+        poppins: ['Poppins'],
       },
       fontSize: {
         h1: ['3rem', '3.3rem'],
@@ -62,6 +63,7 @@ module.exports = {
         'gradient-dark': 'linear-gradient(220.94deg, #333333 14.43%, #525252 85.28%)',
         'gradient-transparent':
           'linear-gradient(180deg, rgba(51, 51, 51, 0.15) 0%, rgba(51, 51, 51, 0) 100%)',
+        'cinema-texture': "url('../public/cinema-texture.png')",
       },
     },
   },

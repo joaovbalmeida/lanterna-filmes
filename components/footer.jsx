@@ -50,7 +50,7 @@ const Footer = () => {
         </button>
       </form>
       <div className="flex flex-col items-end pb-16 pt-10 lg:pt-16 px-10 lg:px-32 space-y-4 text-body4">
-        <p>
+        <p className="text-right">
           © Lanterna Filmes Produções 2022
           <br />
           Todos os direitos Reservados
