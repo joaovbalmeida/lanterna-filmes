@@ -1,15 +1,14 @@
 import Head from 'next/head'
-import Image from 'next/image'
-
-import AboutPicture from '../public/about-picture.png'
-import PeoplePicture from '../public/people.png'
-import Layout from '../components/layout'
-import OrangePattern from '../components/icons/orangePattern'
-import GreenPattern from '../components/icons/GreenPattern'
-import CinemaIcon from '../components/icons/cinemaIcon'
-import MusicIcon from '../components/icons/musicIcon'
-import PublicityIcon from '../components/icons/publicityIcon'
 import Link from 'next/link'
+
+import AboutPicture from '/public/about-picture.png'
+import PeoplePicture from '/public/people.png'
+import Layout from '/components/layout'
+import OrangePattern from '/components/icons/orangePattern'
+import GreenPattern from '/components/icons/GreenPattern'
+import CinemaIcon from '/components/icons/cinemaIcon'
+import MusicIcon from '/components/icons/musicIcon'
+import PublicityIcon from '/components/icons/publicityIcon'
 
 const Home = () => {
   return (
