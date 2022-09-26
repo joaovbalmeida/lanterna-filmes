@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
         />
       </Head>
       <Header />
-      <div className="min-h-screen bg-black font-montserrat">
+      <div className="min-h-screen max-w-screen overflow-hidden bg-black font-montserrat">
         <main>{children}</main>
       </div>
       <Footer />

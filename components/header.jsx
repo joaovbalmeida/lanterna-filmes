@@ -11,7 +11,7 @@ import Logo from '../public/logo.png'
 
 const MenuItem = ({ label, href }) => (
   <li className="group w-full flex items-center">
-    <Link href={href}>
+    <Link href={href} passHref>
       <a className="relative flex items-end">
         <div className="absolute w-0 h-0 mb-[7px] group-hover:w-3 group-hover:h-1 bg-green transition-all duration-200" />
         <p className="transition-all duration-200 group-hover:translate-x-4 text-h3 font-extrabold md:font-normal md:text-body2">
@@ -55,10 +55,10 @@ const Header = () => {
                 <CloseIcon />
               </button>
               <ul className="text-black px-5 pb-7 pt-5 w-56 space-y-3">
-                <MenuItem label="Música" href="" />
-                <MenuItem label="Cinema" href="" />
-                <MenuItem label="Publicidade" href="" />
-                <MenuItem label="Sobre nós" href="" />
+                <MenuItem label="Música" href="/musica" />
+                <MenuItem label="Cinema" href="/cinema" />
+                <MenuItem label="Publicidade" href="/publicidade" />
+                <MenuItem label="Sobre nós" href="/" />
                 <MenuItem label="Fale Conosco" href="" />
               </ul>
             </div>
@@ -74,10 +74,10 @@ const Header = () => {
                 </div>
               </button>
               <ul className="text-black px-5 pb-7 pt-5 w-full space-y-8">
-                <MenuItem label="Música" href="" />
-                <MenuItem label="Cinema" href="" />
-                <MenuItem label="Publicidade" href="" />
-                <MenuItem label="Sobre nós" href="" />
+                <MenuItem label="Música" href="/musica" />
+                <MenuItem label="Cinema" href="/cinema" />
+                <MenuItem label="Publicidade" href="/publicidade" />
+                <MenuItem label="Sobre nós" href="/" />
                 <MenuItem label="Fale Conosco" href="" />
               </ul>
             </div>

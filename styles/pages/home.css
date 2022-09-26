@@ -5,7 +5,13 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 800;
-  font-size: 72px;
+  font-size: 4.5rem;
+}
+
+@media (max-width: 1024px) {
+  .about-span {
+    font-size: 3rem;
+  }
 }
 
 .people-span {

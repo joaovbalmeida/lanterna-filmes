@@ -6,22 +6,59 @@ import PeoplePicture from '../public/people.png'
 import Layout from '../components/layout'
 import OrangePattern from '../components/icons/orangePattern'
 import GreenPattern from '../components/icons/GreenPattern'
+import CinemaIcon from '../components/icons/cinemaIcon'
+import MusicIcon from '../components/icons/musicIcon'
+import PublicityIcon from '../components/icons/publicityIcon'
+import Link from 'next/link'
 
 const Home = () => {
   return (
     <Layout>
       <Head>
-        <title>Next.js Blog Example with</title>
+        <title>Lanterna Filmes</title>
       </Head>
-      <section className="h-screen"></section>
-      <section className="flex flex-col lg:bg-cinema-texture lg:bg-repeat pt-28 pb-28 lg:pb-80 px-8 lg:px-36">
+      <section className="h-screen w-screen bg-home-mobile-banner bg-cover lg:bg-none flex flex-col justify-end overflow-hidden">
+        <div className="hidden lg:flex items-center justify-center mb-16 space-x-8">
+          <div className="group relative flex flex-col items-center">
+            <p className="hidden group-hover:block group-hover:absolute text-white font-bold -top-10">
+              Cinema
+            </p>
+            <Link className="cursor-pointer" href={'/cinema'} passHref>
+              <a className="relative w-16 h-16 rounded-full bg-transparent group-hover:bg-white border-2 border-white text-white group-hover:text-black flex items-center justify-center">
+                <CinemaIcon />
+              </a>
+            </Link>
+          </div>
+          <div className="group relative flex flex-col items-center">
+            <p className="hidden group-hover:block group-hover:absolute text-white font-bold -top-10">
+              Música
+            </p>
+            <Link className="cursor-pointer" href={'/musica'} passHref>
+              <a className="relative w-16 h-16 rounded-full bg-transparent group-hover:bg-white border-2 border-white text-white group-hover:text-black flex items-center justify-center">
+                <MusicIcon />
+              </a>
+            </Link>
+          </div>
+          <div className="group relative flex flex-col items-center">
+            <p className="hidden group-hover:block group-hover:absolute text-white font-bold -top-10">
+              Publicidade
+            </p>
+            <Link className="cursor-pointer" href={'/publicidade'} passHref>
+              <a className="relative w-16 h-16 rounded-full bg-transparent group-hover:bg-white border-2 border-white text-white group-hover:text-black flex items-center justify-center">
+                <PublicityIcon />
+              </a>
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className="flex flex-col lg:bg-home-texture lg:bg-repeat pt-28 pb-28 lg:pb-80 px-8 lg:px-36">
         <div className="flex flex-col lg:flex-row h-fit">
           <div className="lg:w-1/2 h-fit flex flex-col mr-8">
             <div className="relative">
-              <p className="w-[30rem] absolute uppercase font-extrabold font-poppins text-7xl text-white z-10">
+              <p className="w-[30rem] absolute uppercase font-extrabold font-poppins text-5xl lg:text-7xl text-white z-10">
                 Sobre Nós
               </p>
-              <span className="w-[30rem] absolute left-3 about-span">SOBRE NÓS</span>
+              <span className="w-[30rem] absolute left-2 about-span">SOBRE NÓS</span>
             </div>
             <p className="text-gray-5 mt-32">
               Lanterna Filmes é um coletivo/produtora audiovisual com braços em cinema e
