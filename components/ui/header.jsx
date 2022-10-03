@@ -2,18 +2,23 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import WhatsappIcon from './icons/whatsappIcon'
-import InstagramIcon from './icons/instagramIcon'
-import MenuIcon from './icons/menuIcon'
-import CloseIcon from './icons/closeIcon'
-import MenuIconHover from './icons/menuIconHover'
-import Logo from '../public/logo.png'
+import WhatsappIcon from '../icons/whatsappIcon'
+import InstagramIcon from '../icons/instagramIcon'
+import MenuIcon from '../icons/menuIcon'
+import CloseIcon from '../icons/closeIcon'
+import MenuIconHover from '../icons/menuIconHover'
+import Logo from '../../public/logo.png'
 
-const MenuItem = ({ label, href }) => (
-  <li className="group w-full flex items-center">
+const MenuItem = ({ label, href, setShowMenu }) => (
+  <li
+    className="group w-full flex items-center"
+    onClick={() => {
+      setShowMenu(false)
+    }}
+  >
     <Link href={href} passHref>
       <a className="relative flex items-end">
-        <div className="absolute w-0 h-0 mb-[7px] group-hover:w-3 group-hover:h-1 bg-green transition-all duration-200" />
+        <div className="absolute w-0 h-0 mb-[7px] group-hover:w-3 group-hover:h-1 bg-green md:transition-all md:duration-200" />
         <p className="transition-all duration-200 group-hover:translate-x-4 text-h3 font-extrabold md:font-normal md:text-body2">
           {label}
         </p>
@@ -55,11 +60,11 @@ const Header = () => {
                 <CloseIcon />
               </button>
               <ul className="text-black px-5 pb-7 pt-5 w-56 space-y-3">
-                <MenuItem label="Música" href="/musica" />
-                <MenuItem label="Cinema" href="/cinema" />
-                <MenuItem label="Publicidade" href="/publicidade" />
-                <MenuItem label="Sobre nós" href="/" />
-                <MenuItem label="Fale Conosco" href="" />
+                <MenuItem label="Música" href="/musica" setShowMenu={setShowMenu} />
+                <MenuItem label="Cinema" href="/cinema" setShowMenu={setShowMenu} />
+                <MenuItem label="Publicidade" href="/publicidade" setShowMenu={setShowMenu} />
+                <MenuItem label="Sobre nós" href="/#about" setShowMenu={setShowMenu} />
+                <MenuItem label="Fale Conosco" href="#contact" setShowMenu={setShowMenu} />
               </ul>
             </div>
             <div className="block md:hidden absolute top-0 left-0 right-0 h-screen bg-white z-20 p-2">
@@ -74,18 +79,22 @@ const Header = () => {
                 </div>
               </button>
               <ul className="text-black px-5 pb-7 pt-5 w-full space-y-8">
-                <MenuItem label="Música" href="/musica" />
-                <MenuItem label="Cinema" href="/cinema" />
-                <MenuItem label="Publicidade" href="/publicidade" />
-                <MenuItem label="Sobre nós" href="/" />
-                <MenuItem label="Fale Conosco" href="" />
+                <MenuItem label="Música" href="/musica" setShowMenu={setShowMenu} />
+                <MenuItem label="Cinema" href="/cinema" setShowMenu={setShowMenu} />
+                <MenuItem label="Publicidade" href="/publicidade" setShowMenu={setShowMenu} />
+                <MenuItem label="Sobre nós" href="/#about" setShowMenu={setShowMenu} />
+                <MenuItem label="Fale Conosco" href="#contact" setShowMenu={setShowMenu} />
               </ul>
             </div>
           </>
         )}
       </div>
       <div className="flex items-center justify-end md:justify-center h-full w-1/2 md:w-1/3">
-        <Image src={Logo.src} height={38} width={150} alt="Lanterna Filmes Logo" />
+        <Link className="cursor-pointer" href={'/'} passHref>
+          <a>
+            <Image src={Logo.src} height={38} width={150} alt="Lanterna Filmes Logo" />
+          </a>
+        </Link>
       </div>
       <div className="hidden md:flex items-center justify-end h-full w-1/3 px-16 space-x-4">
         <a

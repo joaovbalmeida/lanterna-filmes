@@ -56,6 +56,9 @@ module.exports = {
           'dark-screen': '#FF6425',
         },
       },
+      backgroundColor: {
+        'button-blue': 'rgba(189, 189, 189, 0.15)',
+      },
       backgroundImage: {
         'gradient-green': 'linear-gradient(220.94deg, #007476 14.43%, #0B4D4F 85.28%)',
         'gradient-blue': 'linear-gradient(220.94deg, #022240 14.43%, #1F5587 85.28%)',

@@ -50,7 +50,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="flex flex-col lg:bg-home-texture lg:bg-repeat pt-28 pb-28 lg:pb-80 px-8 lg:px-36">
+      <section
+        className="flex flex-col lg:bg-home-texture lg:bg-repeat pt-28 pb-28 lg:pb-80 px-8 lg:px-36"
+        id="about"
+      >
         <div className="flex flex-col lg:flex-row h-fit">
           <div className="lg:w-1/2 h-fit flex flex-col mr-8">
             <div className="relative">

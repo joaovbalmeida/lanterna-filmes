@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 
-import WhatsappIcon from './icons/whatsappIcon'
-import InstagramIcon from './icons/instagramIcon'
+import WhatsappIcon from '../icons/whatsappIcon'
+import InstagramIcon from '../icons/instagramIcon'
 
 const Footer = () => {
   const { register, handleSubmit } = useForm()
@@ -15,6 +15,7 @@ const Footer = () => {
       <form
         className="w-screen lg:bottom-0 lg:ml-[5%] lg:absolute lg:w-fit bg-white border border-black/50 lg:border-none lg:rounded-t-lg px-10 lg:px-16 py-8 lg:py-16"
         onSubmit={handleSubmit(onSubmit)}
+        id="contact"
       >
         <p className="text-body1 font-bold text-black">Fale Conosco</p>
         <div className="flex flex-col space-y-4 lg:spacey-y-6 mt-7 lg:mt-10 mb-8 lg:mb-6 text-black">
