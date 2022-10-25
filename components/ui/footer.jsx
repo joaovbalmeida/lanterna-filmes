@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import WhatsappIcon from '../icons/whatsappIcon'
 import InstagramIcon from '../icons/instagramIcon'
 
-const Footer = () => {
+const Footer = ({ phone, email }) => {
   const { register, handleSubmit } = useForm()
 
   const onSubmit = (data) => {
@@ -52,12 +52,12 @@ const Footer = () => {
       </form>
       <div className="flex flex-col items-end pb-16 pt-10 lg:pt-16 px-10 lg:px-32 space-y-4 text-body4">
         <p className="text-right">
-          © Lanterna Filmes Produções 2022
+          © Lanterna Filmes Produções {new Date().getFullYear()}
           <br />
           Todos os direitos Reservados
         </p>
-        <p>+55 (21) 0000-0000</p>
-        <p>contato@lanternafilmes.com</p>
+        {phone != null && <p>{phone}</p>}
+        {email != null && <p>{email}</p>}
         <div className="lg:hidden w-full flex items-center justify-end space-x-4 pt-4">
           <a
             className="text-black-darkest bg-white rounded-full hover:bg-black-darkest hover:text-white p-2 cursor-pointer"

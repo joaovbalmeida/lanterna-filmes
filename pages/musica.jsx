@@ -20,7 +20,7 @@ const Musica = () => {
       <section className="h-screen w-screen flex justify-center items-center overflow-hidden">
         <div className="flex flex-col items-center text-white">
           <p className="text-h2 sm:text-[62px] text-center font-bold tracking-[0.25em] leading-[88px]">
-            Música
+            MÚSICA
           </p>
           <p className="text-body4 sm:text-body2 text-center mt-4">Explore nosso catálogo</p>
           <div className="hidden sm:block mt-20 hover:cursor-pointer" onClick={handleScroll}>

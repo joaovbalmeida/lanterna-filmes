@@ -2,7 +2,7 @@ import CardBanner from '../../public/card-banner.jpg'
 
 const ContentCard = ({ coverUrl }) => {
   return (
-    <div className="-translate-y-3/4 sm:translate-y-0 flex flex-col bg-gradient-dark p-4 md:p-6 rounded min-w-fit m-2 md:m-4">
+    <div className="-translate-y-3/4 sm:translate-y-0 flex flex-col bg-gradient-dark p-4 md:p-6 rounded max-w-[25rem] m-2 md:m-4">
       <img alt="" src={CardBanner.src} className="aspect-video object-cover" />
       <p className="text-body3 md:text-body1 mt-3">
         <b>Problemático -</b> Yves Anjos

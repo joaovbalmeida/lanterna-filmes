@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import client from '/services/client'
 
 import AboutPicture from '/public/about-picture.png'
-import PeoplePicture from '/public/people.png'
 import Layout from '/components/layout'
 import OrangePattern from '/components/icons/orangePattern'
 import GreenPattern from '/components/icons/greenPattern'
@@ -10,7 +10,7 @@ import CinemaIcon from '/components/icons/cinemaIcon'
 import MusicIcon from '/components/icons/musicIcon'
 import PublicityIcon from '/components/icons/publicityIcon'
 
-const Home = () => {
+const Home = ({ people }) => {
   return (
     <Layout>
       <Head>
@@ -103,83 +103,43 @@ const Home = () => {
             <span className="w-[30rem] absolute left-3 people-span">Lanterneiros</span>
           </div>
           <div className="h-20 flex justify-end space-x-4">
-            <div className="relative group w-[5rem] z-10">
-              <p className="hidden group-hover:block absolute text-body3 font-bold text-white -top-7 text-center w-full">
-                Lucas
-              </p>
-              <div className="h-[5rem] w-[5rem] rounded-full bg-green">
-                <img
-                  className="h-[4.75rem] w-[4.75rem] translate-y-[0.0625rem]"
-                  alt=""
-                  src={PeoplePicture.src}
-                />
-              </div>
-            </div>
-            <div className="relative group w-[5rem] z-10">
-              <p className="hidden group-hover:block absolute text-body3 font-bold text-white -top-7 text-center w-full">
-                Lucas
-              </p>
-              <div className="h-[5rem] w-[5rem] rounded-full bg-green">
-                <img
-                  className="h-[4.75rem] w-[4.75rem] translate-y-[0.0625rem]"
-                  alt=""
-                  src={PeoplePicture.src}
-                />
-              </div>
-            </div>
-            <div className="relative group w-[5rem] z-10">
-              <p className="hidden group-hover:block absolute text-body3 font-bold text-white -top-7 text-center w-full">
-                Lucas
-              </p>
-              <div className="h-[5rem] w-[5rem] rounded-full bg-green">
-                <img
-                  className="h-[4.75rem] w-[4.75rem] translate-y-[0.0625rem]"
-                  alt=""
-                  src={PeoplePicture.src}
-                />
-              </div>
-            </div>
-            <div className="relative group w-[5rem] z-10">
-              <p className="hidden group-hover:block absolute text-body3 font-bold text-white -top-7 text-center w-full">
-                Lucas
-              </p>
-              <div className="h-[5rem] w-[5rem] rounded-full bg-green">
-                <img
-                  className="h-[4.75rem] w-[4.75rem] translate-y-[0.0625rem]"
-                  alt=""
-                  src={PeoplePicture.src}
-                />
-              </div>
-            </div>
-            <div className="relative group w-[5rem] z-10">
-              <p className="hidden group-hover:block absolute text-body3 font-bold text-white -top-7 text-center w-full">
-                Lucas
-              </p>
-              <div className="h-[5rem] w-[5rem] rounded-full bg-green">
-                <img
-                  className="h-[4.75rem] w-[4.75rem] translate-y-[0.0625rem]"
-                  alt=""
-                  src={PeoplePicture.src}
-                />
-              </div>
-            </div>
-            <div className="relative group w-[5rem] z-10">
-              <p className="hidden group-hover:block absolute text-body3 font-bold text-white -top-7 text-center w-full">
-                Lucas
-              </p>
-              <div className="h-[5rem] w-[5rem] rounded-full bg-green">
-                <img
-                  className="h-[4.75rem] w-[4.75rem] translate-y-[0.0625rem]"
-                  alt=""
-                  src={PeoplePicture.src}
-                />
-              </div>
-            </div>
+            {people != null &&
+              people.map((person, index) => (
+                <div key={`person-${index}`} className="relative group w-[4.275rem] z-10">
+                  <p className="hidden group-hover:block absolute text-body3 font-bold text-white -top-7 text-center w-full whitespace-nowrap flex-grow">
+                    {person.name}
+                  </p>
+                  <div className="h-[4.275rem] w-[4.275rem] rounded-full bg-green">
+                    <div className="h-[4rem] w-[4rem] overflow-hidden rounded-full">
+                      <img
+                        className="h-[4rem] w-[4rem] translate-y-[0.0625rem]"
+                        alt={person.name}
+                        src={person.pictureUrl}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </section>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const people = await client.fetch(
+    `*[_type == "people"]{
+      name,
+      "pictureUrl": picture.asset->url
+    }`
+  )
+
+  return {
+    props: {
+      people,
+    },
+  }
 }
 
 export default Home

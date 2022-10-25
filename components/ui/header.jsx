@@ -27,7 +27,7 @@ const MenuItem = ({ label, href, setShowMenu }) => (
   </li>
 )
 
-const Header = () => {
+const Header = ({ whatsappUrl, instagramUrl }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
@@ -97,22 +97,26 @@ const Header = () => {
         </Link>
       </div>
       <div className="hidden md:flex items-center justify-end h-full w-1/3 px-16 space-x-4">
-        <a
-          className="text-black-darkest bg-white rounded-full hover:bg-black-darkest hover:text-white p-2 cursor-pointer"
-          href=""
-          target={'_blank'}
-          rel="noreferrer"
-        >
-          <WhatsappIcon />
-        </a>
-        <a
-          className="text-black-darkest bg-white rounded-full hover:bg-black-darkest hover:text-white p-2 cursor-pointer"
-          href="https://www.instagram.com/lanternafilmes/"
-          target={'_blank'}
-          rel="noreferrer"
-        >
-          <InstagramIcon />
-        </a>
+        {whatsappUrl != null && (
+          <a
+            className="text-black-darkest bg-white rounded-full hover:bg-black-darkest hover:text-white p-2 cursor-pointer"
+            href={whatsappUrl}
+            target={'_blank'}
+            rel="noreferrer"
+          >
+            <WhatsappIcon />
+          </a>
+        )}
+        {instagramUrl != null && (
+          <a
+            className="text-black-darkest bg-white rounded-full hover:bg-black-darkest hover:text-white p-2 cursor-pointer"
+            href={instagramUrl}
+            target={'_blank'}
+            rel="noreferrer"
+          >
+            <InstagramIcon />
+          </a>
+        )}
       </div>
     </nav>
   )

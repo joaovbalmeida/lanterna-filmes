@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import Head from 'next/head'
+import client from '../services/client'
 
 import Footer from './ui/footer'
 import Header from './ui/header'
@@ -8,6 +9,15 @@ import { ContentContext } from '../hooks/contentContext'
 const Layout = ({ children }) => {
   const contentRef = useRef()
   const [content, setContent] = useState(null)
+  const [websiteInfo, setWebsiteInfo] = useState(null)
+
+  useEffect(() => {
+    client.fetch(`*[_type == "website"]`).then((data) => {
+      if (data.length > 0) {
+        setWebsiteInfo(data[0])
+      }
+    })
+  }, [])
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -49,24 +59,50 @@ const Layout = ({ children }) => {
           rel="stylesheet"
         />
       </Head>
-      <Header />
+      <Header whatsappUrl={websiteInfo?.whatsapp} instagramUrl={websiteInfo?.instagram} />
       <div className="relative min-h-screen max-w-screen overflow-hidden bg-black font-montserrat">
         <ContentContext.Provider value={{ content, setContent }}>
           <main>{children}</main>
           {content != null && (
-            <div className="fixed right-0 bottom-0 left-0 top-0 flex justify-center items-center w-screen h-screen z-10 pt-16">
+            <div className="fixed right-0 bottom-0 left-0 top-0 flex justify-center items-center w-screen h-screen z-50">
               <div
                 ref={contentRef}
-                className="bg-black-light w-screen sm:w-fit max-w-[95%] sm:max-w-[90%] md:max-w-[80%] max-h-[90%]  rounded-lg overflow-y-scroll overflow-x-hidden border-[3px] border-black-dark text-white"
+                className="relative bg-black h-screen w-screen md:w-fit md:max-w-[90%] md:max-h-[95%] md:rounded-lg overflow-y-scroll overflow-x-hidden md:border-[3px] border-black-dark text-white"
               >
-                <div className="w-full aspect-video overflow-hidden"></div>
+                <div className="md:hidden h-16 px-4 flex justify-between items-center">
+                  <p className="h-8 md:hidden text-body1 font-extrabold">{content.title}</p>
+                  <button
+                    className="text-body1 font-extrabold mx-2 cursor-pointer"
+                    onClick={() => {
+                      setContent(null)
+                    }}
+                  >
+                    X
+                  </button>
+                </div>
+                <div className="hidden h-14 w-14 right-0 md:absolute md:flex items-center justify-center bg-black rounded-bl-lg">
+                  <button
+                    className="text-body1 font-extrabold mx-2 cursor-pointer"
+                    onClick={() => {
+                      setContent(null)
+                    }}
+                  >
+                    X
+                  </button>
+                </div>
+                <div
+                  className="w-full aspect-video overflow-hidden flex-grow"
+                  dangerouslySetInnerHTML={{ __html: content.youtube }}
+                />
                 <div className="px-4 md:px-12 py-8">
-                  <p className="text-body1 md:text-h3 font-extrabold">{content.title}</p>
+                  <p className="hidden text-body1 md:block md:text-h3 font-extrabold">
+                    {content.title}
+                  </p>
                   <p className="text-body4 md:text-body3 mt-2">{content.summary}</p>
-                  <div className="block sm:hidden mt-6">
+                  <div className="mt-6">
                     <p className="text-body3 font-bold">Ficha Técnica</p>
                     <p className="text-body4 py-2">{content.preview}</p>
-                    <p className="text-body4">{content.tecnicalDescription}</p>
+                    <p className="text-body4">{content.technicalDescription}</p>
                     {content.awards?.length > 0 && (
                       <>
                         <p className="text-body3 font-bold mt-6 mb-2">Prêmios e Festivais</p>
@@ -96,7 +132,7 @@ const Layout = ({ children }) => {
           )}
         </ContentContext.Provider>
       </div>
-      <Footer />
+      <Footer phone={websiteInfo?.phone} email={websiteInfo?.email} />
     </>
   )
 }
