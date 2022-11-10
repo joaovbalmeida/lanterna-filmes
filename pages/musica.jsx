@@ -32,7 +32,7 @@ const Musica = () => {
         ref={ref}
         className="flex flex-col w-full bg-orange pt-28 pb-28 lg:pb-96 px-8 lg:px-36 text-white"
       >
-        <div className="w-full flex justify-center flex-wrap flex-grow">
+        <div className="w-full flex flex-col items-center flex-grow">
           <ContentCard />
           <ContentCard />
           <ContentCard />
