@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import ReactPlayer from 'react-player'
 import client from '/services/client'
 
 import AboutPicture from '/public/about-picture.png'
@@ -18,14 +19,15 @@ const Home = ({ people }) => {
       </Head>
       <section className="relative h-screen w-screen bg-home-mobile-banner bg-cover lg:bg-none flex flex-col justify-end overflow-hidden">
         <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none">
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/O5D_XGpZh-E?autoplay=1&showinfo=0&controls=0&disablekb=0&loop=1&modestbranding=1&rel=0"
-            frameBorder="0"
-            allow="autoplay; encrypted-media; loop"
-            allowfullscreen
-          ></iframe>
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=O5D_XGpZh-E"
+            muted={true}
+            loop={true}
+            controls={false}
+            width={'100%'}
+            height={'100%'}
+            playing={true}
+          />
         </div>
         <div className="hidden lg:flex items-center justify-center mb-16 space-x-8">
           <div className="group relative flex flex-col items-center">
