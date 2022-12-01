@@ -21,9 +21,9 @@ const Home = ({ people }) => {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/O5D_XGpZh-E?autoplay=1&showinfo=0&controls=0&disablekb=0&enablejsapi=1&loop=1&modestbranding=1&rel=0"
+            src="https://www.youtube.com/embed/O5D_XGpZh-E?autoplay=1&showinfo=0&controls=0&disablekb=0&loop=1&modestbranding=1&rel=0"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; loop"
+            allow="autoplay; encrypted-media; loop"
             allowfullscreen
           ></iframe>
         </div>
